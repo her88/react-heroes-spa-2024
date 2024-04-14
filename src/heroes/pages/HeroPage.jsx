@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { getHeroById } from "../helpers";
 
@@ -7,7 +8,10 @@ export const HeroPage = () => {
 
     const {id} = useParams();
 
-    const hero = getHeroById(id);
+    /**
+     * El Hook useMemo va a ejecutar la funcion de callBack getHeroById(id), cuando cambie una de sus dependencias, que para este caso es el [id]
+     */
+    const hero = useMemo( () => getHeroById(id), [id] );
 
     const onNavigateBack = () => {
         if (hero) {
