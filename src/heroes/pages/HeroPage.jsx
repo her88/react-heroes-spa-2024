@@ -14,10 +14,11 @@ export const HeroPage = () => {
     const hero = useMemo( () => getHeroById(id), [id] );
 
     const onNavigateBack = () => {
-        if (hero) {
-            const to = hero.publisher === 'DC Comics' ? '/dc' : '/marvel';
-            navigate(to);
-        }
+        // if (hero) {
+        //     const to = hero.publisher === 'DC Comics' ? '/dc' : '/marvel';
+        //     navigate(to);
+        // }
+        navigate(-1);
     }
 
     if (!hero) {
